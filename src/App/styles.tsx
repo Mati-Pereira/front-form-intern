@@ -145,7 +145,7 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.yellow};
   color: ${({ theme }) => theme.colors.white};
   padding: 0 3.25rem;
-  height: 5rem;
+  min-height: 70px;
   font-family: "Apercu Arabic Pro";
   font-size: 1.125rem;
   border: none;
