@@ -6,5 +6,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     background-color: ${({ theme }) => theme.colors.white};
+    font-family: 'Apercu Arabic Pro'
   }
 `;
