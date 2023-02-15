@@ -7,6 +7,9 @@ export const Container = styled.div`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  @media (max-width: 500px) {
+    overflow-y: auto;
+  }
 `;
 
 export const Content = styled.div`
@@ -18,7 +21,6 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-
   > img {
     position: absolute;
     min-width: 10rem;
@@ -35,16 +37,21 @@ export const Image = styled.img`
   margin-top: -20rem;
   object-fit: contain;
   width: max-content;
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const Footer = styled.footer`
   position: relative;
   border-top: 1px solid ${({ theme }) => theme.colors.gray_100};
-  > div {
-    display: flex;
-    height: 15rem;
-    align-items: center;
-    img {
+  display: flex;
+  height: 15rem;
+  align-items: center;
+  @media (max-width: 500px) {
+    width: 100%;
+    img:first-child {
+      display: none;
     }
   }
 `;
@@ -79,9 +86,13 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 70%;
+  max-width: 600px;
+  min-width: 500px;
   height: 75vh;
   z-index: 1;
+  @media (max-width: 500px) {
+    min-width: 80%;
+  }
 `;
 
 export const Input = styled.input`
@@ -118,4 +129,14 @@ export const H1 = styled.h1`
   color: ${({ theme }) => theme.colors.gray_700};
 `;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 1.6875rem 3.25rem;
+  font-family: "Apercu Arabic Pro";
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 50px;
+  margin-right: auto;
+  cursor: pointer;
+`;

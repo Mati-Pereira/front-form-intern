@@ -41,17 +41,15 @@ const App = () => {
         <Image src="globe.svg" alt="globe" draggable={false} />
       </Section>
       <Footer>
-        <div>
-          <img src="pinkball.svg" alt="pinkball" />
-          <Icons>
-            <FaLinkedinIn />
-            <FaTwitter />
-            <FaFacebookF />
-            <FaPinterestP />
-          </Icons>
-          <Green src="greenball.svg" alt="greenball" />
-          <Yellow src="yellowball.svg" alt="yellowball" />
-        </div>
+        <img src="pinkball.svg" alt="pinkball" />
+        <Icons>
+          <FaLinkedinIn />
+          <FaTwitter />
+          <FaFacebookF />
+          <FaPinterestP />
+        </Icons>
+        <Green src="greenball.svg" alt="greenball" />
+        <Yellow src="yellowball.svg" alt="yellowball" />
       </Footer>
     </Container>
   );
