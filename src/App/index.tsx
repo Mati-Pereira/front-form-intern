@@ -20,8 +20,11 @@ import {
   FaFacebookF,
   FaPinterestP,
 } from "react-icons/fa";
+import { ThreeDots } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -36,13 +39,28 @@ const App = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch(process.env.BACKEND_URL ?? "", {
+    setIsLoading(true);
+    await fetch(process.env.BACKEND_URL ?? "", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+      .then(() => {
+        setIsLoading(false);
+        setData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        toast.success("Mensagem enviada com sucesso!");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
+    setIsLoading(false);
   };
 
   return (
@@ -57,6 +75,7 @@ const App = () => {
               name="name"
               placeholder="Your name *"
               onChange={handleChange}
+              value={data.name}
               minLength={4}
             />
             <Input
@@ -64,6 +83,7 @@ const App = () => {
               name="email"
               placeholder="Your email *"
               onChange={handleChange}
+              value={data.email}
               minLength={4}
             />
             <Textarea
@@ -72,9 +92,24 @@ const App = () => {
               rows={10}
               draggable={false}
               onChange={handleChange}
+              value={data.message}
               minLength={4}
             />
-            <Button type="submit">Send Message</Button>
+            <Button type="submit">
+              {isLoading ? (
+                <ThreeDots
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="#4fa94d"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  visible={true}
+                />
+              ) : (
+                "Send Message"
+              )}
+            </Button>
           </Form>
         </Content>
         <Image src="globe.svg" alt="globe" draggable={false} />
