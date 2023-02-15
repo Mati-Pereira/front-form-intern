@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import {
   Button,
   Container,
@@ -27,7 +27,6 @@ const App = () => {
     email: "",
     message: "",
   });
-  console.log("data", data);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,12 +34,23 @@ const App = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    fetch(process.env.BACKEND_URL ?? "", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
+
   return (
     <Container>
       <Section>
         <Content>
           <img src="yellowball.svg" alt="yellowball" />
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <H1>Reach out to us!</H1>
             <Input
               type="text"
