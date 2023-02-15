@@ -1,12 +1,15 @@
-import Input from "../components/Input";
 import {
   Container,
   Content,
   Footer,
+  Form,
   Green,
+  H1,
   Icons,
   Image,
+  Input,
   Section,
+  Textarea,
   Yellow,
 } from "./styles";
 import {
@@ -22,9 +25,16 @@ const App = () => {
       <Section>
         <Content>
           <img src="yellowball.svg" alt="yellowball" />
-          <form>
-            <Input type="text" />
-          </form>
+          <Form>
+            <H1>Reach out to us!</H1>
+            <Input type="text" placeholder="Your name *" />
+            <Input type="email" placeholder="Your email *" />
+            <Textarea
+              placeholder="Your message *"
+              rows={10}
+              draggable={false}
+            />
+          </Form>
         </Content>
         <Image src="globe.svg" alt="globe" draggable={false} />
       </Section>

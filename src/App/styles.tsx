@@ -18,13 +18,10 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  > form {
-    width: 400px;
-    height: 500px;
-  }
+
   > img {
     position: absolute;
-    width: 10rem;
+    min-width: 10rem;
     height: 10rem;
     top: 0;
     left: 0;
@@ -74,4 +71,49 @@ export const Green = styled.img`
 export const Yellow = styled.img`
   position: absolute;
   right: -1.875rem;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 70%;
+  height: 75vh;
+  z-index: 1;
+`;
+
+export const Input = styled.input`
+  border: 1px solid ${({ theme }) => theme.colors.gray_100};
+  border-radius: 0.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1.875rem 2.875rem;
+  outline: transparent;
+  color: ${({ theme }) => theme.colors.black};
+  font-size: 1.125rem;
+`;
+
+export const Textarea = styled.textarea`
+  border: 1px solid ${({ theme }) => theme.colors.gray_100};
+  border-radius: 0.5rem;
+  width: 80%;
+  max-width: 30rem;
+  padding: 1.875rem 2.875rem;
+  outline: transparent;
+  color: ${({ theme }) => theme.colors.black};
+  font-size: 1.125rem;
+  font-family: "Apercu Arabic Pro";
+  resize: none;
+`;
+
+export const H1 = styled.h1`
+  text-align: left;
+  width: 100%;
+  max-width: 30rem;
+  font-family: "Apercu Arabic Pro";
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: ${({ theme }) => theme.colors.gray_700};
 `;
