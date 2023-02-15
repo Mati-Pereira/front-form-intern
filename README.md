@@ -19,7 +19,7 @@ This project involves creating a form that will be submitted to a database. It u
 Clone the project
 
 ```bash
-  git clone gh repo clone Mati-Pereira/front-zenbittech
+  git clone https://github.com/Mati-Pereira/front-zenbittech.git
 ```
 
 Navigate to the project directory
