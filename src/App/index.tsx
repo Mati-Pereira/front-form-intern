@@ -20,16 +20,17 @@ import {
   FaFacebookF,
   FaPinterestP,
 } from "react-icons/fa";
-import { toast } from "react-toastify";
-import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { useTheme } from "styled-components";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { postForm } from "../redux/formSlice";
 
 const App = () => {
+  const { loading } = useAppSelector((state) => state.form);
+  const dispatch = useAppDispatch();
   const {
     colors: { white },
   } = useTheme();
-  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -44,27 +45,7 @@ const App = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    await axios
-      .post("https://back-zenbittech-nojbrwfoa-mati-pereira.vercel.app/", data)
-      .then(() => {
-        setIsLoading(false);
-        setData({
-          name: "",
-          email: "",
-          message: "",
-        });
-        toast.success("Message sent successfully!");
-      })
-      .catch((err) => {
-        if (err.response) {
-          toast.error(err.response.data.error);
-        } else {
-          toast.error(err.message);
-        }
-        setIsLoading(false);
-      });
-    setIsLoading(false);
+    dispatch(postForm(data));
   };
 
   return (
@@ -99,8 +80,8 @@ const App = () => {
               value={data.message}
               minLength={4}
             />
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? (
+            <Button type="submit" disabled={loading}>
+              {loading ? (
                 <ThreeDots
                   color={white}
                   wrapperStyle={{
