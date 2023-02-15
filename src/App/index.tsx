@@ -95,25 +95,8 @@ const App = () => {
               value={data.message}
               minLength={4}
             />
-            <Button type="submit">
-              {isLoading ? (
-                <ThreeDots
-                  height="80"
-                  width="80"
-                  radius="9"
-                  color="#4fa94d"
-                  ariaLabel="three-dots-loading"
-                  wrapperStyle={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                  visible={true}
-                />
-              ) : (
-                "Send Message"
-              )}
+            <Button type="submit" disabled={isLoading}>
+              "Send Message"
             </Button>
           </Form>
         </Content>
