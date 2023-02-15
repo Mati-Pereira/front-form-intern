@@ -5,11 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  @media (max-width: 500px) {
-    overflow-y: auto;
-  }
 `;
 
 export const Content = styled.div`
@@ -37,7 +34,7 @@ export const Image = styled.img`
   margin-top: -20rem;
   object-fit: contain;
   width: max-content;
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
@@ -46,13 +43,14 @@ export const Footer = styled.footer`
   position: relative;
   border-top: 1px solid ${({ theme }) => theme.colors.gray_100};
   display: flex;
-  height: 15rem;
+  height: 13rem;
   align-items: center;
   @media (max-width: 500px) {
     width: 100%;
     img:first-child {
       display: none;
     }
+    height: 10rem;
   }
 `;
 
@@ -67,17 +65,26 @@ export const Icons = styled.span`
   display: flex;
   gap: 2rem;
   color: ${({ theme }) => theme.colors.gray_500};
+  @media (max-width: 500px) {
+    margin: 0 3rem;
+  }
 `;
 
 export const Green = styled.img`
   position: absolute;
   right: 10rem;
   top: 0;
+  @media (max-width: 500px) {
+    right: 5rem;
+  }
 `;
 
 export const Yellow = styled.img`
   position: absolute;
   right: -1.875rem;
+  @media (max-width: 500px) {
+    right: -2rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -91,7 +98,12 @@ export const Form = styled.form`
   height: 75vh;
   z-index: 1;
   @media (max-width: 500px) {
+    margin: 2rem auto;
     min-width: 80%;
+  }
+  @media (min-width: 500px) and (max-width: 1000px) {
+    height: 100%;
+    margin: 2rem auto;
   }
 `;
 
