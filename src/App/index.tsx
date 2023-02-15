@@ -54,10 +54,10 @@ const App = () => {
           email: "",
           message: "",
         });
-        toast.success("Mensagem enviada com sucesso!");
       })
       .catch((err) => {
         setIsLoading(false);
+        toast.error("Ocorreu um erro ao enviar sua mensagem!");
         console.log(err);
       });
     setIsLoading(false);
@@ -103,7 +103,12 @@ const App = () => {
                   radius="9"
                   color="#4fa94d"
                   ariaLabel="three-dots-loading"
-                  wrapperStyle={{}}
+                  wrapperStyle={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
                   visible={true}
                 />
               ) : (
