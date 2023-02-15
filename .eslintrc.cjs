@@ -17,5 +17,13 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint", "prettier"],
-  rules: {},
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };
