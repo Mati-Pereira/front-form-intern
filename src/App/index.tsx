@@ -40,8 +40,9 @@ const App = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    try {
-      await axios.post("http://localhost:3000", data).then(() => {
+    await axios
+      .post("http://localhost:3000", data)
+      .then(() => {
         setIsLoading(false);
         setData({
           name: "",
@@ -49,11 +50,15 @@ const App = () => {
           message: "",
         });
         toast.success("Mensagem enviada com sucesso!");
+      })
+      .catch((err) => {
+        if (err.response) {
+          toast.error(err.response.data.error);
+        } else {
+          toast.error(err.message);
+        }
+        setIsLoading(false);
       });
-    } catch (error: any) {
-      setIsLoading(false);
-      toast.error(error.response.data.message);
-    }
     setIsLoading(false);
   };
 
