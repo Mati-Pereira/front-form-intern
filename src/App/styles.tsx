@@ -117,3 +117,5 @@ export const H1 = styled.h1`
   font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.gray_700};
 `;
+
+export const Button = styled.button``;

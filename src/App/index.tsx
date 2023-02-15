@@ -1,4 +1,5 @@
 import {
+  Button,
   Container,
   Content,
   Footer,
@@ -34,6 +35,7 @@ const App = () => {
               rows={10}
               draggable={false}
             />
+            <Button>Send Message</Button>
           </Form>
         </Content>
         <Image src="globe.svg" alt="globe" draggable={false} />
