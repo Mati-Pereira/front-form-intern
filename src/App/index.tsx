@@ -1,3 +1,4 @@
+import Input from "../components/Input";
 import {
   Container,
   Content,
@@ -21,7 +22,9 @@ const App = () => {
       <Section>
         <Content>
           <img src="yellowball.svg" alt="yellowball" />
-          <form></form>
+          <form>
+            <Input type="text" />
+          </form>
         </Content>
         <Image src="globe.svg" alt="globe" draggable={false} />
       </Section>
