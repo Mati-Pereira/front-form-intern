@@ -15,32 +15,40 @@ export const Content = styled.div`
   flex-grow: 5;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   > form {
-    background-color: red;
     width: 400px;
-    height: 300px;
+    height: 500px;
   }
   > img {
+    position: absolute;
     width: 10rem;
     height: 10rem;
+    top: 0;
+    left: 0;
   }
 `;
 
 export const Image = styled.img`
   display: flex;
   flex-grow: 1;
-  margin-right: -10rem;
-  margin-top: -15rem;
+  margin-right: -8rem;
+  margin-top: -20rem;
   object-fit: contain;
-  width: 50%;
-  height: 100%;
-  background-color: red;
+  width: max-content;
 `;
 
 export const Footer = styled.footer`
-  display: flex;
   position: relative;
-  > img {
+  border-top: 1px solid ${({ theme }) => theme.colors.gray_100};
+  > div {
+    display: flex;
+    height: 15rem;
+    align-items: center;
+    img {
+    }
   }
 `;
 
@@ -50,4 +58,20 @@ export const Section = styled.section`
   justify-content: center;
 `;
 
-export const Icons = styled.span``;
+export const Icons = styled.span`
+  margin: 0 1rem;
+  display: flex;
+  gap: 2rem;
+  color: ${({ theme }) => theme.colors.gray_500};
+`;
+
+export const Green = styled.img`
+  position: absolute;
+  right: 10rem;
+  top: 0;
+`;
+
+export const Yellow = styled.img`
+  position: absolute;
+  right: -1.875rem;
+`;

@@ -1,4 +1,19 @@
-import { Container, Content, Footer, Image, Section } from "./styles";
+import {
+  Container,
+  Content,
+  Footer,
+  Green,
+  Icons,
+  Image,
+  Section,
+  Yellow,
+} from "./styles";
+import {
+  FaLinkedinIn,
+  FaTwitter,
+  FaFacebookF,
+  FaPinterestP,
+} from "react-icons/fa";
 
 const App = () => {
   return (
@@ -11,7 +26,17 @@ const App = () => {
         <Image src="globe.svg" alt="globe" draggable={false} />
       </Section>
       <Footer>
-        <img src="pinkball.svg" alt="pinkball" />
+        <div>
+          <img src="pinkball.svg" alt="pinkball" />
+          <Icons>
+            <FaLinkedinIn />
+            <FaTwitter />
+            <FaFacebookF />
+            <FaPinterestP />
+          </Icons>
+          <Green src="greenball.svg" alt="greenball" />
+          <Yellow src="yellowball.svg" alt="yellowball" />
+        </div>
       </Footer>
     </Container>
   );
