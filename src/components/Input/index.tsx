@@ -1,7 +1,9 @@
 import { ComponentPropsWithoutRef, FC } from "react";
 import { Container } from "./styles";
 
-const Input: FC<ComponentPropsWithoutRef<"input">> = () => {
+type ButtonProps = React.ComponentPropsWithoutRef<"input">;
+
+const Input: FC<ButtonProps> = () => {
   return <Container />;
 };
 
