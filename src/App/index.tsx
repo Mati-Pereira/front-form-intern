@@ -20,8 +20,8 @@ import {
   FaFacebookF,
   FaPinterestP,
 } from "react-icons/fa";
-import { ThreeDots } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,26 +40,20 @@ const App = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    await fetch(process.env.BACKEND_URL ?? "", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(() => {
+    try {
+      await axios.post("http://localhost:3000", data).then(() => {
         setIsLoading(false);
         setData({
           name: "",
           email: "",
           message: "",
         });
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        toast.error("Ocorreu um erro ao enviar sua mensagem!");
-        console.log(err);
+        toast.success("Mensagem enviada com sucesso!");
       });
+    } catch (error: any) {
+      setIsLoading(false);
+      toast.error(error.response.data.message);
+    }
     setIsLoading(false);
   };
 
