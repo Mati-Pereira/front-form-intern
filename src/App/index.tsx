@@ -22,8 +22,13 @@ import {
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import { useTheme } from "styled-components";
 
 const App = () => {
+  const {
+    colors: { white },
+  } = useTheme();
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -95,7 +100,19 @@ const App = () => {
               minLength={4}
             />
             <Button type="submit" disabled={isLoading}>
-              Send Message
+              {isLoading ? (
+                <ThreeDots
+                  color={white}
+                  wrapperStyle={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                />
+              ) : (
+                "Send Message"
+              )}
             </Button>
           </Form>
         </Content>
