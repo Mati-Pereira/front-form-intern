@@ -41,7 +41,7 @@ const App = () => {
     e.preventDefault();
     setIsLoading(true);
     await axios
-      .post("http://localhost:3000", data)
+      .post("https://back-zenbittech-nojbrwfoa-mati-pereira.vercel.app/", data)
       .then(() => {
         setIsLoading(false);
         setData({
@@ -95,7 +95,7 @@ const App = () => {
               minLength={4}
             />
             <Button type="submit" disabled={isLoading}>
-              "Send Message"
+              Send Message
             </Button>
           </Form>
         </Content>
