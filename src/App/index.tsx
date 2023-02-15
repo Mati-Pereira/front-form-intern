@@ -54,7 +54,7 @@ const App = () => {
           email: "",
           message: "",
         });
-        toast.success("Mensagem enviada com sucesso!");
+        toast.success("Message sent successfully!");
       })
       .catch((err) => {
         if (err.response) {
